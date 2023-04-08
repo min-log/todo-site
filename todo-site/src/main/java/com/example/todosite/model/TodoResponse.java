@@ -1,0 +1,27 @@
+package com.example.todosite.model;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+public class TodoResponse {
+    private Long id;
+    private String title;
+    private Long order;
+    private Boolean completed;
+    private String url;
+
+    // todo entity 를 파라미터로 받는 생성자
+    public TodoResponse(TodoModel todoModel){
+        this.id = todoModel.getId();
+        this.title = todoModel.getTitle();
+        this.order = todoModel.getOrder();
+        this.completed = todoModel.getCompleted();
+
+        this.url = "http://localhost:8081/"+this.id;
+    }
+
+}
